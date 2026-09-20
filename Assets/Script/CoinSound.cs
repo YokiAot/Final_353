@@ -8,6 +8,7 @@ public class CoinSound : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         coinFX.Play();
+        Info.coinCount += 1;
         this.gameObject.SetActive(false);
     }
 }
