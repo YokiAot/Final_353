@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject coinDisplay;
     [SerializeField] GameObject batteryDisplay;
     [SerializeField] GameObject distanceDisplay;
+    [SerializeField] GameObject exitButton;
 
     public static bool hasClicked;
 
@@ -48,6 +49,7 @@ public class MainMenu : MonoBehaviour
             menuControls.SetActive(true);
             bounceText.SetActive(false);
             bigBotton.SetActive(false);
+            if (exitButton != null) exitButton.SetActive(false);
         }
     }
 
@@ -70,6 +72,10 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine(StartBotton());
     }
+    //public void QuitGame()
+    //{
+    //    StartCoroutine(QuitBotton());
+    //}
 
     IEnumerator StartBotton()
     {
@@ -79,6 +85,15 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+
+    //IEnumerator QuitBotton()
+    //{
+    //    bottonSelect.Play();
+    //    fadeOut.SetActive(true);
+    //    yield return new WaitForSeconds(1f);
+    //    Application.Quit();
+    //}
+
     IEnumerator AnimCam()
     {
         animCam.GetComponent<Animator>().Play("AnimCam");
@@ -87,6 +102,7 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         mainCam.SetActive(false);
         menuControls.SetActive(true);
+        if (exitButton != null) exitButton.SetActive(true);
         hasClicked = true;
     }
 }
