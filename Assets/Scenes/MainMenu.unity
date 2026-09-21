@@ -3191,7 +3191,7 @@ GameObject:
   - component: {fileID: 1621414111}
   - component: {fileID: 1621414114}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: StaticCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3525,6 +3525,7 @@ MonoBehaviour:
   mainCam: {fileID: 1621414110}
   menuControls: {fileID: 2079289832}
   bottonSelect: {fileID: 173269343}
+  staticCam: {fileID: 1621414110}
 --- !u!4 &1766389841
 Transform:
   m_ObjectHideFlags: 0

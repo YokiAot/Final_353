@@ -19,10 +19,22 @@ public class MainMenu : MonoBehaviour
     GameObject menuControls;
     [SerializeField]
     AudioSource bottonSelect;
+    [SerializeField] GameObject staticCam;
+
+    public static bool hasClicked;
 
     void Start()
     {
-        
+        if (hasClicked == true)
+        {
+            staticCam.SetActive(true);
+            mainCam.SetActive(true);
+            animCam.SetActive(false);
+
+            menuControls.SetActive(true);
+            bounceText.SetActive(false);
+            bigBotton.SetActive(false);
+        }
     }
 
     void Update()
@@ -45,7 +57,7 @@ public class MainMenu : MonoBehaviour
         bottonSelect.Play();
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Game");
     }
 
     IEnumerator AnimCam()
@@ -56,5 +68,6 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         mainCam.SetActive(false);
         menuControls.SetActive(true);
+        hasClicked = true;
     }
 }
