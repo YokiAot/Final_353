@@ -57,7 +57,7 @@ public class MainMenu : MonoBehaviour
         bottonSelect.Play();
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(1);
     }
 
     IEnumerator AnimCam()
