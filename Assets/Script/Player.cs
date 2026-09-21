@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,9 +8,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float horizontalSpeed = 3f;
     public float rightLimit = 5.5f;
     public float leftLimit = -5.5f;
+    [SerializeField]
+    bool isRunning;
 
     void Update()
     {
+        if (isRunning == false)
+        {
+            isRunning = true;
+            StartCoroutine(AddDistance());
+        }
         transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
         if (Keyboard.current != null)
         {
@@ -28,5 +36,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator AddDistance()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Info.distanceRun += 1;
+        isRunning = false;
     }
 }
