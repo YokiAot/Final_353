@@ -18,6 +18,7 @@ public class Tree : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        SaveLoad.saveData = true;
        StartCoroutine(CollisionEnd());
     }
     IEnumerator CollisionEnd()

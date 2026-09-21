@@ -21,10 +21,24 @@ public class MainMenu : MonoBehaviour
     AudioSource bottonSelect;
     [SerializeField] GameObject staticCam;
 
+    [SerializeField] int loadedCoin;
+    [SerializeField] int loadedBattery;
+    [SerializeField] int loadedDistance;
+    [SerializeField] GameObject coinDisplay;
+    [SerializeField] GameObject batteryDisplay;
+    [SerializeField] GameObject distanceDisplay;
+
     public static bool hasClicked;
 
     void Start()
     {
+        /*loadedCoin = PlayerPrefs.GetInt("CoinSave");
+        loadedBattery = PlayerPrefs.GetInt("BatterySave");
+        loadedDistance = PlayerPrefs.GetInt("DistanceSave");
+        coinDisplay.GetComponent<TMPro.TMP_Text>().text = "" + loadedCoin;
+        batteryDisplay.GetComponent<TMPro.TMP_Text>().text = "" + loadedBattery;
+        distanceDisplay.GetComponent<TMPro.TMP_Text>().text = "" + loadedDistance;*/
+
         if (hasClicked == true)
         {
             staticCam.SetActive(true);
@@ -39,7 +53,12 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        
+        loadedCoin = PlayerPrefs.GetInt("CoinSave");
+        loadedBattery = PlayerPrefs.GetInt("BatterySave");
+        loadedDistance = PlayerPrefs.GetInt("DistanceSave");
+        coinDisplay.GetComponent<TMPro.TMP_Text>().text = "" + loadedCoin;
+        batteryDisplay.GetComponent<TMPro.TMP_Text>().text = "" + loadedBattery;
+        distanceDisplay.GetComponent<TMPro.TMP_Text>().text = "" + loadedDistance;
     }
 
     public void MenuBeginBotton()
